@@ -32,5 +32,5 @@ def time_memo_fibonacci(n):
 	return result, time.clock()	
 	
 	
-print 'memo:', time_memo_fibonacci(30)
-print 'fibo:', time_fibonacci(30)
+print 'memo:', time_memo_fibonacci(25)
+print 'fibo:', time_fibonacci(25)
