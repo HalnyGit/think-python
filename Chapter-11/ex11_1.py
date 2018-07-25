@@ -39,7 +39,7 @@ def read_words(input_file):
 	return t
 
 t1 = read_words('words.txt')
-word = 'dupa'
+word = 'ass'
 wd = dict()
 for elem in t1:
 	wd[elem] = len(elem)
