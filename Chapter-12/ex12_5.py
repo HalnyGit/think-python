@@ -35,10 +35,10 @@ def map_of_codes(words):
 def sets_of_anagrams(map_of_codes):
 	"""Returns sets of anagrams
 	
-	map_of_codes - dictonary that maps each word to its letter code
+	map_of_codes - dictonary that maps each word (key) to its letter code
 	return - list that contains sets of anagrams
 	"""
-	#creates a dictonary that maps single letter code to all possible anagrams
+	#creates a dictonary that maps single letter code to all possible anagrams(words)
 	map_of_anagrams = dict()
 	for word, code in map_of_codes.iteritems():
 		map_of_anagrams.setdefault(code, []).append(word)
