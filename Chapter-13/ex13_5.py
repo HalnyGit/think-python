@@ -21,7 +21,8 @@ def choose_from_hist(d):
 	for letter, num in d.iteritems():
 		collector = collector + num
 		freq_dict[collector] = freq_dict.get(collector, letter)	
-	#finding integer that matches the key-proportion
+	
+	#finding integer that matches the exact key-proportion
 	all_letter_sum = sum(d.values())
 	pick = random.randint(1, all_letter_sum)
 	while pick not in freq_dict.keys():

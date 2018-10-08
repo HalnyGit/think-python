@@ -1,5 +1,5 @@
 def read_words(infile):
-	"""Creates the list of words from the file
+	"""Creates the list of words from the txt file
 	infile: text file
 	return: list
 	"""	
@@ -23,8 +23,6 @@ def make_word_dict(words):
 	words: list of words
 	return: dictonary {word:number of occurrence}
 	"""
-	num_of_words = len(words)
-	print 'total number of words in text:', num_of_words
 	word_dict = dict()
 	for word in words:
 		word_dict[word] = word_dict.get(word, 0) + 1
