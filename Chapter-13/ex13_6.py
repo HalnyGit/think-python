@@ -5,18 +5,17 @@ def read_book_words(infile):
 	"""	
 	import string
 	
-	fin = open(infile)
+	fin = open(infile) 
 	lines = fin.readlines()
-	
 	words = []
 	for line in lines[25:]: #skipping over the header information
 		line = line.replace('-', ' ')
 		t = line.split()
 		for word in t:
-			word = word.strip(string.punctuation + string.whitespace + '"')
+			word = word.strip(string.punctuation + string.whitespace + '\xe2\x80\x9c' + '\xe2\x80\x9d')
 			word = word.lower()
 			words.append(word)
-	words.remove('')
+	#words.remove('')
 	return words
 	
 def read_list_words(infile):
@@ -42,6 +41,7 @@ def compare_book_dict(book_words, list_words):
 bw = read_book_words('emma.txt')
 lw = read_list_words('words.txt')
 print compare_book_dict(bw, lw)
+
 
 
 	
