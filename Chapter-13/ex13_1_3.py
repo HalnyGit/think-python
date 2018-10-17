@@ -19,7 +19,7 @@ def read_words(infile):
 
 def make_word_dict(words):
 	"""Creates dictonary of string from the word list with words as keys
-	and print the the number of times the words has been used as values
+	and print the number of times the words has been used as values
 	words: list of words
 	return: dictonary {word:number of occurrence}
 	"""
