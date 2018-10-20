@@ -15,6 +15,6 @@ def walk2(dirname):
 			print os.path.join(root, filename)
 
 
-some_path = 'C:\Users\Public\Documents\IT\ThinkPython'
+some_path = ' ***input path here*** '
 walk2(some_path)
 

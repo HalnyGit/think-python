@@ -1,9 +1,3 @@
-#1 & 2
-# def is_anagram(word1, word2):
-	# """Checks if 2 words are anagrams and if so it returns True
-	# """
-	# return sorted(word1) == sorted(word2)
-
 def read_words(input_file):
 	"""Reads file and returns list of words
 	""" 
@@ -63,7 +57,7 @@ res = sets_of_anagrams(d, 2)
 # for elem in res:
 	# print elem
 
-#3
+
 def bingo(sets_of_anagrams, k):
 	"""Returns largest sets of anagrams in respect to the number of letters in the anagrams
 	
@@ -89,6 +83,6 @@ def bingo(sets_of_anagrams, k):
 	return bingo
 		
 scrabble = bingo(res, 8)
-for elem in scrabble:
-		print elem
+# for elem in scrabble:
+		# print elem
 
