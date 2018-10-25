@@ -15,6 +15,8 @@ def walk2(dirname):
 			print os.path.join(root, filename)
 
 
-some_path = ' ***input path here*** '
-walk2(some_path)
+path_1 = 'C:\\' #on Windows, check for whole drive C:
+path_2 = 'C:\Users\User\Music' #on Windows, check specific directory
+walk2(path_1)
+
 
