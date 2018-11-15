@@ -28,7 +28,7 @@ def next_birthday():
 
 
 def double_day(n=2):
-	"""Find the day when one born on date1 is n-times older (in days) then one born on date 2
+	"""Find the day when one born on date1 is n-times older (in days) then other born on date 2
 	Note for n > 2 may not find solution within range
 	"""
 	date1 = date(1975, 9, 28)
