@@ -20,9 +20,19 @@ class Time(object):
 		"""
 		return self.time_to_int() > other.time_to_int()
 	
+	def __cmp__(self, other):
+		t1 = self.time_to_int()
+		t2 = other.time_to_int()
+		return cmp(t1, t2)
 	
 def int_to_time(seconds):
 	time = Time()
 	minutes, time.second = divmod(seconds, 60)
 	time.hour, time.minute = divmod(minutes, 60)
 	return time
+	
+	
+time1 = Time(10, 12, 36)
+time2 = Time(12, 34, 54)
+
+time1 > time2
