@@ -65,9 +65,10 @@ class Deck(object):
 	
 	def sort(self):
 		self.cards.sort()
-		
-	def sort(self):
-		self.cards.sort(lambda x: (x.suit, x.rank)
+	
+	# uncomment while not using __lt__ or __cmp__ function within Card class
+	# def sort(self):
+		# self.cards.sort(lambda x: (x.suit, x.rank)
 		
 	def move_cards(self, hand, num):
 		for i in range(num):
