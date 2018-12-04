@@ -2,7 +2,9 @@ import random
 
 class Card(object):
 	""" Represents a standard playing card
-	attributes: suit, rank
+	attributes: 
+	suit: integer 0-3, 
+	rank: integer 1-13
 	"""
 	
 	def __init__(self, suit=0, rank=2):
@@ -14,6 +16,7 @@ class Card(object):
 				'8', '9', '10', 'Jack', 'Queen', 'King']
 	
 	def __str__(self):
+		"""Returns a human-readable string representation."""
 		return '{0:s} of {1:s}'.format(Card.rank_names[self.rank],
 										Card.suit_names[self.suit])
 
@@ -30,6 +33,10 @@ class Card(object):
 		# return 0
 		
 	def __cmp__(self, other):
+		"""Compares this card to other, first bu suit, then rank.
+		Returns a positive number if this > other, negative if other > this,
+		and 0 if they are equivalent
+		"""
 		t1 = (self.suit, self.rank)
 		t2 =(other.suit, other.rank)
 		return  cmp(t1, t2)
@@ -39,7 +46,7 @@ class Card(object):
 
 class Deck(object):
 	"""Represents deck of cards
-		attributes: list of cards
+		attributes: list of Card objects
 	"""
 	def __init__(self):
 		self.cards = []
@@ -54,11 +61,15 @@ class Deck(object):
 			res.append(str(card))
 		return '\n'.join(res)
 		
-	def pop_card(self):
+	def pop_card(self ):
 		return self.cards.pop()
 	
 	def add_card(self, card):
 		self.cards.append(card)
+	
+	def remove_card(self, card):
+		"""Removes a card from the deck."""
+		self.cards.remove(card)
 	
 	def shuffle(self):
 		random.shuffle(self.cards)
