@@ -94,12 +94,23 @@ class PokerHand(Hand):
 				return True
 		return False
 		
-	def has_flush(self):
+	def has_straightflush(self):
 		"""Returns True if the hand has four of a kind, False otherwise.
 		"""
-			
+		self.suit_ranks_map = {}
+		for card in self.cards:
+			self.suit_ranks_map.setdefault(card.suit, []).append(card.rank)
+		##if ace in the list add additional rank 14 to the list to check consecutivity
+		for suit, ranks in self.suit_ranks_map.iteritems():
+			if 1 in self.suit_ranks_map[suit]:
+				self.suit_ranks_map[suit].append(14)
+		##check consecutivity of ranks
+		for ranks in self.suit_ranks_map.values():
+			if self.has_consecutive(5, ranks):
+				return True
+		return False
 		
-	def has_consecutive(self, n, lst):
+	def has_consecutive(self, n, lt):
 		"""Check if a list contains n-element sub list with consecutive numbers
 		n: lenght of sub list
 		lst: list with integers
@@ -107,17 +118,17 @@ class PokerHand(Hand):
 		"""		
 		##without list comprehension
 		# subs = []
-		# for i in range(len(lst)):
-			# if len(lst[i:i+n]) == n:
-				# subs.append(lst[i:i+n])
+		# for i in range(len(lt)):
+			# if len(lt[i:i+n]) == n:
+				# subs.append(lt[i:i+n])
 		# for sub in subs:
 			# if sub == range(min(sub), max(sub)+1):
 				# return True
 		# return False
 		
-		#using list comprehension
-		lst.sort()
-		subs = [lst[i:i+n] for i in range(len(lst)) if len(lst[i:i+n]) == n]
+		##using list comprehension
+		lt.sort()
+		subs = [lt[i:i+n] for i in range(len(lt)) if len(lt[i:i+n]) == n]
 		return any([sub == range(min(sub), max(sub)+1) for sub in subs])	
 
 	
@@ -132,13 +143,13 @@ if __name__ == '__main__':
 		deck.move_cards(hand, 7)
 		hand.sort()
 		print hand
-		print hand.has_four()
+		print hand.has_straightflush()
 		print ''
 
-# random_cards = [Card(0, 10), Card(1, 10), Card(0, 7), Card(2, 10), Card(3, 10), Card(2, 12)]
+# random_cards = [Card(0, 1), Card(0, 10), Card(0, 11), Card(0, 12), Card(0, 13), Card(2, 2), Card(2, 3), Card(2, 4), Card(2, 5), Card(2, 10)]
 # hand = PokerHand()
 # for card in random_cards:
 	# hand.add_card(card)
-# print hand
-# print hand.has_four()	
+#print hand
+# hand.has_straightflush()	
 
